@@ -162,7 +162,7 @@
   <script src="https://unpkg.com/@tweenjs/tween.js@18.6.4/dist/tween.umd.js"></script>
 
   <!-- then load CanvasFlowMapLayer -->
-  <script src="../../src/CanvasFlowmapLayer.js"></script>
+  <script src="src/CanvasFlowmapLayer.js"></script>
 
   <!-- also load 3rd-party CSV parsing libary just for this demo  -->
   <script src="https://unpkg.com/papaparse@5.3.0/papaparse.min.js"></script>
@@ -174,10 +174,27 @@
 
     L.esri.basemapLayer('DarkGray').addTo(map);
 	
-    var layersArray = [];
-	var geoJsonFeatureCollection;
-	//data/wegzuege.geojson 
-	
+    Papa.parse('https://raw.githubusercontent.com/MadeByMel/geovisualisation/main/data/wegzuege.csv?token=GHSAT0AAAAAABQQDPEZLFOAP2NP4I37RM54YPH7PXQ', {
+      download: true,
+      header: true,
+      dynamicTyping: true,
+      skipEmptyLines: true,
+      complete: function(results) {
+        var geoJsonFeatureCollection = {
+          type: 'FeatureCollection',
+          features: results.data.map(function(datum) {
+            return {
+              type: 'Feature',
+              geometry: {
+                type: 'Point',
+                coordinates: [datum.origin_lon, datum.origin_lat]
+              },
+              properties: datum
+            }
+          })
+        };
+
+
 
           var demoLayer = L.canvasFlowmapLayer(geoJsonFeatureCollection, {
             originAndDestinationFieldIds: {
@@ -196,12 +213,13 @@
             animationStarted: true,
             animationEasingFamily: 'Cubic',
             animationEasingType: 'In',
-            animationDuration: 2000,
-            customLayerId: customLayerId
-          });	
+            animationDuration: 2000
+          }).addTo(map);	
 
-          layersArray.push(demoLayer);
-            demoLayer.addTo(map);
+      }});
+		  
+		  
+          //demoLayer.addTo(map);
   
   
   </script>
