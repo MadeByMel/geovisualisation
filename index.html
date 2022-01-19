@@ -175,9 +175,14 @@
     L.esri.basemapLayer('DarkGray').addTo(map);
 
     var layersArray = [];
+//    createCanvasFlowmapLayer('../data/wegzuege.geojson', 0, true);
+
+
+
+  //  function createCanvasFlowmapLayer(geojsonFilePath, customLayerId, doOneTimeDemoSetup){}
 	var geoJsonFeatureCollection;
 	//data/wegzuege.geojson
-
+    console.log('../data/wegzuege.geojson');
 
           var demoLayer = L.canvasFlowmapLayer(geoJsonFeatureCollection, {
             originAndDestinationFieldIds: {
@@ -201,7 +206,15 @@
           });
 
           layersArray.push(demoLayer);
-            demoLayer.addTo(map);
+          demoLayer.addTo(map);
+
+          layerListenerChange({
+            target: userInteractionSelect
+          });
+
+
+
+
 
 
   </script>
