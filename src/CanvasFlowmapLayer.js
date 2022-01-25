@@ -45,10 +45,10 @@
         type: 'simple',
         symbol: {
           // use canvas styling options (compare to CircleMarker styling below)
-          strokeStyle: 'rgba(255, 0, 51, 0.8)',
+          strokeStyle: 'rgba(255,255,255, 0.8)',
           lineWidth: 0.75,
           lineCap: 'round',
-          shadowColor: 'rgb(255, 0, 51)',
+          shadowColor: 'rgb(238,244,250)',
           shadowBlur: 1.5
         }
       },
@@ -57,11 +57,11 @@
         type: 'simple',
         symbol: {
           // use canvas styling options (compare to CircleMarker styling below)
-          strokeStyle: 'rgb(255, 46, 88)',
+          strokeStyle: 'rgb(255,255,255)',
           lineWidth: 1.25,
           lineDashOffsetSize: 4, // custom property used with animation sprite sizes
           lineCap: 'round',
-          shadowColor: 'rgb(255, 0, 51)',
+          shadowColor: 'rgb(238,244,250)',
           shadowBlur: 2
         }
       },
@@ -95,16 +95,16 @@
         if (geoJsonFeature.properties.isOrigin) {
           return {
             renderer: canvasRenderer, // recommended to use L.canvas()
-            radius: 5,
-            weight: 1,
-            color: 'rgb(195, 255, 62)',
-            fillColor: 'rgba(195, 255, 62, 0.6)',
+            radius: 8,
+            weight: 3,
+            color: 'rgb(255, 195, 62)',
+            fillColor: 'rgba(255, 195, 62, 0.6)',
             fillOpacity: 0.6
           };
         } else {
           return {
             renderer: canvasRenderer,
-            radius: 2.5,
+            radius: 5,
             weight: 0.25,
             color: 'rgb(17, 142, 170)',
             fillColor: 'rgb(17, 142, 170)',
