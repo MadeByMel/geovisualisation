@@ -43,12 +43,12 @@
       background-color: #f8f8f8;	
 	}
 	
-	.success {background-color: #71f9eb;color: black;} 
-	.info {background-color: #5fded1;color: black;} 
-	.warning {background-color: #50bfb3;color: black;}
-	.danger {background-color: #30aa9d;color: white;} 
-	.other {background-color: #0e9587; color: white;}
-	.other2 {background-color: #0E8173; color: white;}
+	.success {background-color: #5fded1;color: black;} 
+	.info {background-color: #50bfb3;color: black;} 
+	.warning {background-color: #30aa9d;color: black;}
+	.danger {background-color: #0C786D;color: white;} 
+	.other {background-color: #08574E; color: white;}
+	.other2 {background-color: #063C36; color: white;}
 		
     .control-panel {
       position: absolute;
@@ -194,10 +194,10 @@
 
   <!-- also load 3rd-party CSV parsing libary just for this demo  -->
   <script src="https://unpkg.com/papaparse@5.3.0/papaparse.min.js"></script>
-
-
+  
+  
   <script>
-
+  
    var map = L.map('map').setView([48, 13.5], 5);
 
     L.esri.basemapLayer('Gray').addTo(map);
@@ -205,7 +205,6 @@
 	 var layersArray = [];
     createCanvasFlowmapLayer('https://raw.githubusercontent.com/MadeByMel/geovisualisation/main/data/wegzuege.csv?token=GHSAT0AAAAAABQQDPEZLFOAP2NP4I37RM54YPH7PXQ', 0, true);
     createCanvasFlowmapLayer('https://raw.githubusercontent.com/MadeByMel/geovisualisation/main/data/zuzuege.csv', 1);
-
 	
    function createCanvasFlowmapLayer(csvFilePath, customLayerId, doOneTimeDemoSetup) {
       Papa.parse(csvFilePath,  {
@@ -227,7 +226,6 @@
             }
           })
         };
-
 
 
 
@@ -257,60 +255,60 @@
               classMinValue: 0,
               classMaxValue: 25,
               symbol: {
-                strokeStyle: '#71f9eb',
-                lineWidth: 0.2,
+                strokeStyle: '#5fded1',
+                lineWidth: 0.3,
                 lineCap: 'round',
-                shadowColor: '#71f9eb',
+                shadowColor: '#5fded1',
                 shadowBlur: 1.5
               }
             }, {
               classMinValue: 26,
               classMaxValue: 100,
               symbol: {
-                strokeStyle: '#5fded1',
-                lineWidth: 1,
+                strokeStyle: '#50bfb3',
+                lineWidth: 1.5,
                 lineCap: 'round',
-                shadowColor: '#5fded1',
+                shadowColor: '#50bfb3',
                 shadowBlur: 1.5
               }
             }, {
               classMinValue: 101,
               classMaxValue: 500,
               symbol: {
-                strokeStyle: '#50bfb3',
-                lineWidth: 2.5,
+                strokeStyle: '#30AA9D',
+                lineWidth: 3,
                 lineCap: 'round',
-                shadowColor: '#50bfb3',
+                shadowColor: '#30AA9D',
                 shadowBlur: 1.5
               }
             }, {
               classMinValue: 501,
               classMaxValue: 5000,
               symbol: {
-                strokeStyle: '#30aa9d',
-                lineWidth: 3.5,
+                strokeStyle: '#0C786D',
+                lineWidth: 5,
                 lineCap: 'round',
-                shadowColor: '#30aa9d',
+                shadowColor: '#0C786D',
                 shadowBlur: 1.5
 				}
               }, {
               classMinValue: 5001,
               classMaxValue: 10000,
               symbol: {
-                strokeStyle: '#0e9587',
-                lineWidth: 4.5,
+                strokeStyle: '#08574E',
+                lineWidth: 7,
                 lineCap: 'round',
-                shadowColor: '#0e9587',
+                shadowColor: '#08574E',
                 shadowBlur: 1.5
 				}
               }, {
               classMinValue: 10001,
               classMaxValue: 25000,
               symbol: {
-                strokeStyle: '#0E8173',
-                lineWidth: 5,
+                strokeStyle: '#063C36',
+                lineWidth: 10,
                 lineCap: 'round',
-                shadowColor: '#0E8173',
+                shadowColor: '#063C36',
                 shadowBlur: 1.5
               }
             }],
@@ -337,12 +335,9 @@
             animationStarted: true,
             animationEasingFamily: 'Cubic',
             animationEasingType: 'In',
-
             animationDuration: 2000,
             customLayerId: customLayerId
           });	
-
-
 		  
           layersArray.push(demoLayer);		  
           if (doOneTimeDemoSetup) {
@@ -502,11 +497,11 @@
 	var legend = L.control({position: 'bottomright'});
 	legend.addTo(map);
   
-
+  
   </script>
-
-
-
+  
+  
+  
 
 </body>
 
